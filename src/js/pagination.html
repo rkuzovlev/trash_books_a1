@@ -1,0 +1,15 @@
+<nav class="pagination is-centered">
+    <a class="pagination-previous" ng-disabled="pagination.current == 1" ng-click="setCurrent(pagination.current - 1)">Previous</a>
+    <a class="pagination-next" ng-disabled="pagination.current == pagination.last" ng-click="setCurrent(pagination.current + 1)">Next page</a>
+    
+    <ul class="pagination-list">
+        <li ng-repeat="pageNumber in pages track by tracker(pageNumber, $index)">
+            <span ng-if="pageNumber == '...'" class="pagination-ellipsis">&hellip;</span>
+            <a ng-if="pageNumber != '...'" 
+                href=""
+                class="pagination-link" 
+                ng-class="{ 'is-current' : pagination.current == pageNumber }"
+                ng-click="setCurrent(pageNumber)">{{ pageNumber }}</a>
+        </li>
+    </ul>
+</nav>

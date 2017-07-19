@@ -1,0 +1,33 @@
+<div dir-paginate="item in StoreService.items | filter:filter | itemsPerPage:12:12345" 
+            class="column is-one-third-fullhd is-half-desktop"
+            pagination-id="12345"
+            current-page="page">
+    <div class="card book">
+        <div class="card-image">
+            <figure class="image">
+                <img ng-src="{{ item.img }}" alt="{{ item.title }}">
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+                <p class="options">
+                    <span><i class="fa fa-calendar"></i> {{ item.date | date:'yyyy' }}</span>
+                    <span><i class="fa fa-language"></i> {{ item.lang }}</span>
+                    <span><i class="fa fa-usd"></i> {{ item.cost }}</span> <br />
+                </p>
+                <store-rating rating="item.rating" title="{{ item.rating }}"></store-rating>
+            </div>
+        </div>
+        <footer class="card-footer">
+            <a ng-if="StoreService.getCount(item.id) == 0 || StoreService.getCount(item.id) == undefined" 
+                ng-click="StoreService.add(item.id)" 
+                class="card-footer-item">Add to cart</a>
+            
+            <a ng-if="StoreService.getCount(item.id) > 0" 
+                ng-click="StoreService.add(item.id)" 
+                class="card-footer-item">Add one more ({{ StoreService.getCount(item.id) }})</a>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<h2 class="title is-4">Filters</h2>
+
+<div class="field">
+    <label class="label">Cost $</label>
+    <p class="control small-controls range">
+        <input class="input" type="number" ng-model="StoreService.filter.cost.from" min="0" max="{{StoreService.filter.cost.to}}">
+        <span>&ndash;</span>
+        <input class="input" type="number" ng-model="StoreService.filter.cost.to" min="{{StoreService.filter.cost.from}}" max="10">
+    </p>
+</div>
+
+<div class="field">
+    <label class="label">Release date</label>
+    <p class="control small-controls range">
+        <input class="input" type="number" ng-model="StoreService.filter.year.from" min="1970" max="{{StoreService.filter.year.to}}">
+        <span>&ndash;</span>
+        <input class="input" type="number" ng-model="StoreService.filter.year.to" min="{{StoreService.filter.year.from}}" max="2020">
+    </p>
+</div>
+
+<div class="field">
+    <label class="label">Rating</label>
+    <p class="control small-controls range">
+        <input class="input" type="number" ng-model="StoreService.filter.rating.from" min="0" max="{{StoreService.filter.rating.to}}">
+        <span>&ndash;</span>
+        <input class="input" type="number" ng-model="StoreService.filter.rating.to" min="{{StoreService.filter.rating.from}}" max="5">
+    </p>
+</div>
+
+<div class="field">
+    <label class="label">Language</label>
+    <p class="control is-expanded">
+        <span class="select is-fullwidth">
+            <select ng-model="StoreService.filter.lang">
+                <option value="all">All</option>
+                <option value="eng">Eng</option>
+                <option value="rus">Rus</option>
+            </select>
+        </span>
+    </p>
+</div>

@@ -1,0 +1,18 @@
+<div class="columns">
+	<div class="column is-one-quarter book-filter">
+		<store-filter></store-filter>
+	</div>
+
+	<div class="column">
+		<store-list class="columns is-multiline is-desktop"></store-list>
+
+		<dir-pagination-controls
+			max-size="9"
+			direction-links="true"
+			boundary-links="true"
+			on-page-change="onPageChange(newPageNumber, oldPageNumber)"
+			pagination-id="12345"
+			auto-hide="true">
+		</dir-pagination-controls>
+	</div>
+</div>
