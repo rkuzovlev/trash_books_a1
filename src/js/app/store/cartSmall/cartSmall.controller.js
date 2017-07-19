@@ -1,13 +1,11 @@
 import _find from 'lodash/find';
 import _forEach from 'lodash/forEach';
 
-/* @ngInject */
 export default class StoreCartSmallController {
+	/* @ngInject */
 	constructor($scope, StoreService) {
 		$scope.items = StoreService.items;
 		$scope.cartItems = StoreService.cartItems;
-
-		$scope.test = "hahahahhahahah!";
 
 		$scope.total = 0;
 		$scope.count = 0;

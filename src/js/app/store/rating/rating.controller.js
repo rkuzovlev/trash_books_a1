@@ -1,5 +1,5 @@
-/* @ngInject */
 export default class StoreRatingController {
+	/* @ngInject */
 	constructor($scope) {
 		$scope.star = Math.trunc($scope.rating);
 

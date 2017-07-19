@@ -1,5 +1,5 @@
-/* @ngInject */
 export default class StoreCartController {
+	/* @ngInject */
 	constructor($scope, StoreService) {		
 		$scope.items = StoreService.items;
 		$scope.cartItems = StoreService.cartItems;

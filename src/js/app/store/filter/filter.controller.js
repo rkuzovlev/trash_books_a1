@@ -1,8 +1,6 @@
-/* @ngInject */
 export default class StoreFilterController {
+	/* @ngInject */
 	constructor($scope, StoreService) {
-		this.StoreService = StoreService;
-
-		$scope.StoreService = this.StoreService;
+		$scope.StoreService = StoreService;
 	}
 }

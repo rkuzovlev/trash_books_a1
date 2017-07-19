@@ -1,5 +1,5 @@
-/* @ngInject */
-export default class mainController {
+export default class MainController {
+	/* @ngInject */
 	constructor() {
 
 	}
