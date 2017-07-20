@@ -1,4 +1,4 @@
-<nav class="pagination is-centered">
+<nav class="pagination is-centered" ng-if="1 < pages.length || !autoHide">
     <a class="pagination-previous" ng-disabled="pagination.current == 1" ng-click="setCurrent(pagination.current - 1)">Previous</a>
     <a class="pagination-next" ng-disabled="pagination.current == pagination.last" ng-click="setCurrent(pagination.current + 1)">Next page</a>
     

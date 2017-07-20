@@ -1,10 +1,16 @@
 export class StoreService {
     /* @ngInject */
-	constructor($http){
+	constructor($http, localStorageService){
         this.$http = $http;
+        this.localStorageService = localStorageService;
+
+        this.cartItems = Object.create(null);
+        let cartItemsFromStorage = this.localStorageService.get('cartItems');
+        if (cartItemsFromStorage != null){
+            this.cartItems = Object.assign(this.cartItems, cartItemsFromStorage);
+        }
 
         this.items = [];
-        this.cartItems = Object.create(null);
         this.error = null;
         this.fetch();
         this.filter = {
@@ -27,6 +33,7 @@ export class StoreService {
     add(itemId){
         this.cartItems[itemId] = this.cartItems[itemId] || 0;
         this.cartItems[itemId]++;
+        this.localStorageService.set('cartItems', this.cartItems);
     }
 
     remove(itemId){
@@ -35,6 +42,14 @@ export class StoreService {
             if (this.cartItems[itemId] == 0){
                 delete this.cartItems[itemId];
             }
+            this.localStorageService.set('cartItems', this.cartItems);
+        }
+    }
+
+    removeCartPosition(cartId){
+        if (this.cartItems[cartId]){
+            delete this.cartItems[cartId];
+            this.localStorageService.set('cartItems', this.cartItems);
         }
     }
 

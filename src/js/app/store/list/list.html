@@ -1,7 +1,11 @@
-<div dir-paginate="item in StoreService.items | filter:filter | itemsPerPage:12:12345" 
-            class="column is-one-third-fullhd is-half-desktop"
-            pagination-id="12345"
-            current-page="page">
+<div class="column" ng-if="itemsFiltered.length == 0">
+    <h4 class="title is-4 has-text-centered">No results</h4>
+</div> 
+
+<div dir-paginate="item in itemsFiltered | itemsPerPage:12:12345" 
+        class="column is-one-third-fullhd is-half-desktop"
+        pagination-id="12345"
+        current-page="page">
     <div class="card book">
         <div class="card-image">
             <figure class="image">

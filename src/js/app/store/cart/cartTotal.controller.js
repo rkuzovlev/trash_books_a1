@@ -15,6 +15,9 @@ export default class StoreCartTotalController {
 			_forEach($scope.cartItems, function(count, key){
 				let itemId = parseInt(key);
 				let item = _find($scope.items, {id: itemId});
+				if (!item) {
+					return;
+				}
 				$scope.total += item.cost * count;
 			});
 		};

@@ -1,10 +1,11 @@
 export default class StoreListController {
 	/* @ngInject */
-	constructor($scope, StoreService, $stateParams) {
+	constructor($scope, StoreService, $stateParams, $filter) {
 		let page = parseInt($stateParams.page);
 		$scope.page = page ? page : 1;
 
 		$scope.StoreService = StoreService;
+
 		$scope.filter = function(item, index, items){
 			let year = (new Date(item.date)).getFullYear();
 			
@@ -24,5 +25,10 @@ export default class StoreListController {
 			
 			return false;
 		}
+
+		$scope.itemsFiltered = $filter('filter')(StoreService.items, $scope.filter);
+		$scope.$watch('StoreService', function(){
+			$scope.itemsFiltered = $filter('filter')(StoreService.items, $scope.filter);
+		}, true);
 	}
 }
