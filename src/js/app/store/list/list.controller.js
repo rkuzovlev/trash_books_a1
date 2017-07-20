@@ -8,7 +8,7 @@ export default class StoreListController {
 
 		$scope.filter = function(item, index, items){
 			let year = (new Date(item.date)).getFullYear();
-			
+
 			if (item.cost >= StoreService.filter.cost.from &&
 				item.cost <= StoreService.filter.cost.to &&
 				

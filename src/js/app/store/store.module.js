@@ -1,4 +1,7 @@
 import angular from 'angular';
+import angularUtilsPagination from 'angular-utils-pagination';
+import angularLocalStorage from 'angular-local-storage';
+import router from '@uirouter/angularjs';
 
 import StoreListPageController from './listPage/listPage.controller';
 import StoreListPageDirective from './listPage/listPage.directive';
@@ -23,7 +26,7 @@ import StoreCartSmallDirective from './cartSmall/cartSmall.directive';
 
 import { StoreService } from './service/store.service';
 
-export default angular.module('store', [])
+export default angular.module('store', [angularUtilsPagination, router, angularLocalStorage])
 	.service('StoreService', StoreService)
 		
 	.directive('storeListPage', StoreListPageDirective)
