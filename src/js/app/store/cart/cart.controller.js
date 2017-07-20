@@ -13,6 +13,7 @@ export default class StoreCartController {
 				$scope.count += $scope.cartItems[i];
 				$scope.count2++;
 			}
+			StoreService.saveCart();
 		};
 
 		recount();

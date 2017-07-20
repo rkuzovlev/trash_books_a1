@@ -30,10 +30,14 @@ export class StoreService {
         };
     }
 
+    saveCart(){
+        this.localStorageService.set('cartItems', this.cartItems);
+    }
+
     add(itemId){
         this.cartItems[itemId] = this.cartItems[itemId] || 0;
         this.cartItems[itemId]++;
-        this.localStorageService.set('cartItems', this.cartItems);
+        this.saveCart();
     }
 
     remove(itemId){
@@ -42,14 +46,14 @@ export class StoreService {
             if (this.cartItems[itemId] == 0){
                 delete this.cartItems[itemId];
             }
-            this.localStorageService.set('cartItems', this.cartItems);
+            this.saveCart();
         }
     }
 
     removeCartPosition(cartId){
         if (this.cartItems[cartId]){
             delete this.cartItems[cartId];
-            this.localStorageService.set('cartItems', this.cartItems);
+            this.saveCart();
         }
     }
 
